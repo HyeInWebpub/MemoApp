@@ -2,10 +2,16 @@ import "./css/MemoContainer.css";
 import "../../fontAwesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function MemoContainer({ memo, setMemo }) {
+function MemoContainer({ memo, setMemo, containerOnClick }) {
   if (memo === undefined) {
     return (
-      <div className="MemoContainer">
+      <div
+        className="MemoContainer"
+        onClick={(e) => {
+          e.stopPropagation();
+          containerOnClick();
+        }}
+      >
         <div className="noMemo">
           <FontAwesomeIcon
             icon={["far", "pen-to-square"]}
@@ -19,7 +25,13 @@ function MemoContainer({ memo, setMemo }) {
   }
 
   return (
-    <div className="MemoContainer">
+    <div
+      className="MemoContainer"
+      onClick={(e) => {
+        e.stopPropagation();
+        containerOnClick();
+      }}
+    >
       <input
         className="memo_title"
         type="text"
