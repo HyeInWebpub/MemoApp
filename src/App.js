@@ -1,11 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { BreakPoint } from "./MediaQuery";
 import "./fontAwesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./base/css/reset.css";
 import "./base/css/common.css";
 import MemoSideBar from "./components/MemoSideBar";
 import MemoContainer from "./components/MemoContainer";
+import { BreakPoint } from "./MediaQuery";
 
 export default function App() {
   // 메모 디폴트값
@@ -108,8 +110,12 @@ export default function App() {
   };
 
   /* === 사이드바 열고닫기 === */
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-  const isSmall = useMediaQuery({ query: "(max-width : 750px)" });
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true); // 사이드바를 보여줄것인가
+  const isMedium = useMediaQuery({ query: BreakPoint.medium }); // 미디움 해상도인가
+  const isSmall = useMediaQuery({ query: BreakPoint.small }); // 스몰 해상도인가
+  const [isContainerClicked, setIsContainerClicked] = useState(false); // MemoContainer가 클릭되었는가
+
+  useEffect(() => {}, []);
 
   return (
     <div className="App">
