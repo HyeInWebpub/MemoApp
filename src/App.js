@@ -7,7 +7,6 @@ import "./base/css/reset.css";
 import "./base/css/common.css";
 import MemoSideBar from "./components/MemoSideBar";
 import MemoContainer from "./components/MemoContainer";
-import { BreakPoint } from "./MediaQuery";
 
 export default function App() {
   // 메모 디폴트값
